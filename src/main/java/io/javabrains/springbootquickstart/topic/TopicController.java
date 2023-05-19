@@ -1,7 +1,7 @@
 package io.javabrains.springbootquickstart.topic;
 
-import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -24,8 +24,8 @@ public class TopicController {
 	
 	// The path variable annotation maps the if in the request mapping to the parameter for the method.
 	@RequestMapping("/topics/{id}")
-	public Topic geTopic(@PathVariable String id) {
-		return topicService.geTopic(id);
+	public Optional<Topic> geTopic(@PathVariable String id) {
+		return topicService.getTopic(id);
 	}
 	
 	@RequestMapping(method = RequestMethod.POST, value = "/topics")
